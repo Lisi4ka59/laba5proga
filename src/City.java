@@ -1,5 +1,5 @@
 public class City {
-    public static long ID = 0;
+    public static long nextId = 0;
     private long id;//Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -11,7 +11,14 @@ public class City {
     private Government government; //Поле может быть null
     private StandardOfLiving standardOfLiving; //Поле может быть null
     private Human governor; //Поле может быть null
+
+    public City(String name){
+        id = nextId++;
+        this.name = name;
+    }
+
+    @Override
     public String toString() {
-        return name;
+        return String.format("id: %d, name: %s", id, name);
     }
 }

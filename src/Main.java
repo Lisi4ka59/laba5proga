@@ -1,13 +1,18 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
     static boolean stop = false;
+    static LinkedList<City> cities = new LinkedList<>();
+
     public static void main(String[] args) {
-        ArrayList<Long> id = new ArrayList<>();
+        cities.add(new City("Москва"));
+        cities.add(new City("Пермь"));
+        cities.add(new City("Санкт-Петербург"));
 
         do {
-            System.out.println("Введите комманду: ");
+            System.out.print("Введите комманду: ");
             Scanner scanner = new Scanner(System.in);
             String Command = scanner.next();
             switch (Command) {
@@ -114,10 +119,15 @@ public class Main {
     }
 
     private static void commandShow() {
-
+        for (City a:cities){
+            System.out.println(a.toString());
+        }
     }
 
     private static void commandInfo() {
+        System.out.printf("Количество элементов: %d\n", cities.size());
+        System.out.printf("Тип коллекции: %s\n", cities.getClass().getName());
+
 
     }
 
